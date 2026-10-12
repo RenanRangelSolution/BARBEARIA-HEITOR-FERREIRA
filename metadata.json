@@ -1,0 +1,8 @@
+{
+  "name": "Barbearia Heitor Ferreira",
+  "description": "Agendamento online de cortes, barba e cuidados masculinos na Barbearia Heitor Ferreira.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

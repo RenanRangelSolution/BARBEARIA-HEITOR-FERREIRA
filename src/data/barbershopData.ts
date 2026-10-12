@@ -1,0 +1,271 @@
+import { Service, AddOn, Barber, Appointment } from '../types';
+
+export const HERO_IMAGE = '/src/assets/images/hero_barbershop_1791819624960.jpg';
+export const BARBER_HEITOR_IMAGE = '/src/assets/images/barber_craftsman_1791819634851.jpg';
+export const TOOLS_IMAGE = '/src/assets/images/barbershop_tools_1791819643809.jpg';
+export const LOGO_IMAGE = '/src/assets/images/logo_heitor_ferreira_1791827424348.jpg';
+
+export const BARBERS: Barber[] = [
+  {
+    id: 'heitor',
+    name: 'Heitor Ferreira',
+    role: 'Mestre Barbeiro & Fundador',
+    experience: '12 anos de experiência',
+    bio: 'Especialista em visagismo masculino, cortes clássicos e a tradicional barboterapia com toalha quente e navalha afiada.',
+    avatar: BARBER_HEITOR_IMAGE,
+    specialties: ['Visagismo Masculino', 'Cortes Clássicos', 'Barba Tradicional', 'Navalha'],
+    daysWorking: [2, 3, 4, 5, 6], // Terça a Sábado
+  },
+  {
+    id: 'rafael',
+    name: 'Rafael Costa',
+    role: 'Barbeiro Especialista',
+    experience: '7 anos de experiência',
+    bio: 'Referência em degradês milimétricos (skin fade, taper, low fade) e designs modernos de barba com pigmentação natural.',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    specialties: ['Fade & Degradê', 'Texturização', 'Pigmentação', 'Alinhamento'],
+    daysWorking: [2, 3, 4, 5, 6],
+  },
+  {
+    id: 'lucas',
+    name: 'Lucas Mendes',
+    role: 'Barbeiro & Estilista Capilar',
+    experience: '5 anos de experiência',
+    bio: 'Focado em cuidados capilares avançados, tratamentos de couro cabeludo, hidratação profunda e acabamentos de alta definição.',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    specialties: ['Acabamento de Precisão', 'Tratamento Capilar', 'Camuflagem', 'Barba'],
+    daysWorking: [2, 3, 4, 5, 6],
+  },
+];
+
+export const SERVICES: Service[] = [
+  {
+    id: 'corte-tradicional',
+    name: 'Corte Tradicional & Visagismo',
+    category: 'cabelo',
+    description: 'Avaliação da anatomia do rosto, lavagem revigorante com shampoo refrescante, corte sob medida na tesoura ou máquina e finalização com pomada matte.',
+    price: 75,
+    durationMinutes: 45,
+    popular: true,
+    tag: 'Mais Escolhido',
+  },
+  {
+    id: 'fade-especial',
+    name: 'Fade & Degradê de Alta Precisão',
+    category: 'cabelo',
+    description: 'Transição suave na navalha ou shaver (Low, Mid, High Fade), definição do pezinho e finalização com tônico capilar refrescante.',
+    price: 70,
+    durationMinutes: 45,
+  },
+  {
+    id: 'acabamento-pezinho',
+    name: 'Pezinho & Alinhamento dos Contornos',
+    category: 'cabelo',
+    description: 'Alinhamento milimétrico do contorno do cabelo e nuca com navalha descartável, toalha quente e gel lubrificante refrescante.',
+    price: 35,
+    durationMinutes: 20,
+  },
+  {
+    id: 'barboterapia-ritual',
+    name: 'Barboterapia com Toalha Quente',
+    category: 'barba',
+    description: 'Ritual clássico: esfoliação de abertura dos poros, toalha aromatizada a vapor, óleo vegetal hidratante, corte na navalha e bálsamo pós-barba calmante.',
+    price: 60,
+    durationMinutes: 40,
+    popular: true,
+    tag: 'Experiência Única',
+  },
+  {
+    id: 'design-barba',
+    name: 'Design & Alinhamento de Barba',
+    category: 'barba',
+    description: 'Aparo de volume com tesoura e máquina, desenho de linhas da bochecha e pescoço, e óleo finalizador com fragrância amadeirada.',
+    price: 45,
+    durationMinutes: 30,
+  },
+  {
+    id: 'pigmentacao-barba',
+    name: 'Pigmentação & Camuflagem de Falhas',
+    category: 'barba',
+    description: 'Correção sutil de falhas e realce do contorno com tonalizante de alta durabilidade e acabamento 100% natural.',
+    price: 55,
+    durationMinutes: 35,
+  },
+  {
+    id: 'combo-heitor',
+    name: 'Combo Mestre Heitor (Corte + Barba)',
+    category: 'combos',
+    description: 'Corte completo personalizado + Barboterapia completa com toalha quente, lavagem especial com massagem e finalização premium.',
+    price: 120,
+    durationMinutes: 75,
+    popular: true,
+    tag: 'Recomendação da Casa',
+  },
+  {
+    id: 'combo-vip',
+    name: 'Experiência VIP Heitor Ferreira',
+    category: 'combos',
+    description: 'Corte completo, Barboterapia tradicional, Sobrancelha na navalha, Esfoliação facial revigorante e café expresso ou cerveja artesanal gelada.',
+    price: 160,
+    durationMinutes: 90,
+  },
+  {
+    id: 'hidratacao-spa',
+    name: 'Detox Capilar & Hidratação Profunda',
+    category: 'spa',
+    description: 'Limpeza profunda do couro cabeludo, remoção de oleosidade e hidratação intensa com máscara nutritiva de queratina e aminoácidos.',
+    price: 65,
+    durationMinutes: 35,
+  },
+  {
+    id: 'limpeza-facial',
+    name: 'Limpeza de Pele & Esfoliação Black',
+    category: 'spa',
+    description: 'Máscara negra para remoção de cravos, esfoliação facial refrescante com extrato de carvão ativado e hidratante toque seco.',
+    price: 75,
+    durationMinutes: 40,
+  },
+];
+
+export const ADD_ONS: AddOn[] = [
+  {
+    id: 'sobrancelha',
+    name: 'Design de Sobrancelha na Navalha',
+    price: 25,
+    durationMinutes: 15,
+    description: 'Limpeza do excesso e alinhamento do arco de forma natural e discreta.',
+  },
+  {
+    id: 'esfoliacao-facial',
+    name: 'Esfoliação Facial c/ Argila',
+    price: 30,
+    durationMinutes: 15,
+    description: 'Elimina células mortas, desobstrui poros e deixa a pele macia e descansada.',
+  },
+  {
+    id: 'massagem-craniana',
+    name: 'Massagem Craniana Relaxante',
+    price: 25,
+    durationMinutes: 10,
+    description: 'Alívio da tensão e ativação da circulação no couro cabeludo durante a lavagem.',
+  },
+];
+
+export const TIME_SLOTS: string[] = [
+  '09:00', '09:45', '10:30', '11:15', '12:00',
+  '13:30', '14:15', '15:00', '15:45', '16:30',
+  '17:15', '18:00', '18:45', '19:30'
+];
+
+export const INITIAL_APPOINTMENTS: Appointment[] = [
+  {
+    id: 'appt-1',
+    code: 'HF-9142',
+    serviceId: 'combo-heitor',
+    serviceName: 'Combo Mestre Heitor (Corte + Barba)',
+    servicePrice: 120,
+    addOnIds: ['sobrancelha'],
+    addOnsNames: ['Design de Sobrancelha na Navalha'],
+    totalPrice: 145,
+    totalDuration: 90,
+    barberId: 'heitor',
+    barberName: 'Heitor Ferreira',
+    date: new Date().toISOString().split('T')[0],
+    timeSlot: '10:30',
+    customerName: 'Guilherme Silveira',
+    customerPhone: '(11) 98765-4321',
+    customerEmail: 'guilherme.silveira@email.com',
+    notes: 'Degradê médio na zero e barba bem alinhada.',
+    status: 'confirmed',
+    createdAt: new Date(Date.now() - 3600000 * 5).toISOString(),
+  },
+  {
+    id: 'appt-2',
+    code: 'HF-8821',
+    serviceId: 'corte-tradicional',
+    serviceName: 'Corte Tradicional & Visagismo',
+    servicePrice: 75,
+    addOnIds: [],
+    addOnsNames: [],
+    totalPrice: 75,
+    totalDuration: 45,
+    barberId: 'rafael',
+    barberName: 'Rafael Costa',
+    date: new Date().toISOString().split('T')[0],
+    timeSlot: '14:15',
+    customerName: 'Marcelo Andrade',
+    customerPhone: '(11) 97654-3210',
+    customerEmail: 'marcelo.andrade@email.com',
+    notes: 'Cliente prefere tesoura no topo e pente 2 dos lados.',
+    status: 'confirmed',
+    createdAt: new Date(Date.now() - 3600000 * 8).toISOString(),
+  },
+  {
+    id: 'appt-3',
+    code: 'HF-7430',
+    serviceId: 'barboterapia-ritual',
+    serviceName: 'Barboterapia com Toalha Quente',
+    servicePrice: 60,
+    addOnIds: ['esfoliacao-facial'],
+    addOnsNames: ['Esfoliação Facial c/ Argila'],
+    totalPrice: 90,
+    totalDuration: 55,
+    barberId: 'heitor',
+    barberName: 'Heitor Ferreira',
+    date: new Date().toISOString().split('T')[0],
+    timeSlot: '16:30',
+    customerName: 'Renan Ribeiro',
+    customerPhone: '(11) 99123-7744',
+    customerEmail: 'renan.ribeiro@email.com',
+    notes: 'Pele sensível no pescoço.',
+    status: 'confirmed',
+    createdAt: new Date(Date.now() - 3600000 * 2).toISOString(),
+  },
+];
+
+export const REVIEWS = [
+  {
+    name: 'Carlos Eduardo Nogueira',
+    service: 'Combo Mestre Heitor',
+    rating: 5,
+    date: 'Há 3 dias',
+    comment: 'O Heitor é um verdadeiro artista. A atenção aos detalhes e o ritual da toalha quente na barba não têm comparação na cidade. Ambiente impecável com café de primeira.',
+  },
+  {
+    name: 'Thiago Faria Albuquerque',
+    service: 'Fade & Degradê de Alta Precisão',
+    rating: 5,
+    date: 'Há 1 semana',
+    comment: 'Corte impecável com o Rafael. Fade perfeito, sem marcas. Pontualidade britânica no agendamento, você chega e já é atendido sem enrolação.',
+  },
+  {
+    name: 'Rodrigo Vasconcelos',
+    service: 'Experiência VIP Heitor Ferreira',
+    rating: 5,
+    date: 'Há 2 semanas',
+    comment: 'Fiz a experiência VIP antes do meu casamento. Saí me sentindo renovado. Cerveja gelada, atendimento atencioso e o corte durou semanas alinhado.',
+  },
+];
+
+export const BARBERSHOP_INFO = {
+  name: 'Barbearia Heitor Ferreira',
+  tagline: 'Barba, Cabelo e Bigode',
+  instagram: '@heitoor_barber',
+  instagramUrl: 'https://instagram.com/heitoor_barber',
+  whatsapp: '5511999998888',
+  phoneDisplay: '(11) 99999-8888',
+  address: 'Barbearia Heitor Ferreira',
+  googleMapsUrl: 'https://share.google/7oVaDuILBP4xgQVvs',
+  hours: [
+    { days: 'Terça a Sexta', hours: '09:00 às 20:00' },
+    { days: 'Sábado', hours: '08:30 às 19:30' },
+    { days: 'Domingo e Segunda', hours: 'Fechado (Folga da equipe)' },
+  ],
+  amenities: [
+    'Café espresso moído na hora',
+    'Chopp artesanal cortesia no atendimento',
+    'Wi-Fi ultra-rápido & ambiente climatizado',
+    'Mesa de sinuca e lounge de espera',
+    'Estacionamento com manobrista conveniado',
+  ],
+};
